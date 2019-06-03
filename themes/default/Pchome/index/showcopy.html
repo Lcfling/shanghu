@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>支付金额<{$orderinfo.money/100}></p>
+<a href="alipays://platformapi/startapp?appId=20000691&url=<{$url}>"><img src="/app/verify/creatqrcode?order=<{$orderinfo.order}>"></a>
+</body>
+</html>

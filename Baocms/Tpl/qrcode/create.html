@@ -1,0 +1,80 @@
+<div class="row-fluid sortable">
+    <div class="box span12">
+        <div class="box-header" data-original-title>
+            <h2><i class="halflings-icon white align-justify"></i><span class="break"></span>添加支付宝</h2>
+            <div class="box-icon">
+                <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+            </div>
+        </div>
+        <div class="box-content">
+            <form target="baocms_frm" class="form-horizontal" action="<{:U('qrcode/create')}>" method="post">
+                <div class="control-group">
+                    <label class="control-label">电话</label>
+                    <div class="controls">
+                        <input class="input-xlarge focused" name="data[mobile]" type="text" value="">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">支付宝账号（2088开头）</label>
+                    <div class="controls">
+                        <input class="input-xlarge focused" name="data[qrcode]" type="text" value="">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">备注</label>
+                    <div class="controls">
+                        <input class="input-xlarge focused" name="data[remark]" type="text" value="">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">类型</label>
+                    <div class="controls">
+                        <select name="data[type]" class="seleFl w150" style="display: inline-block;">
+                                <option value="1">支付宝</option>
+                        </select>
+                    </div>
+                </div>
+                <!--<js file='__PUBLIC__/js/uploadify/jquery.uploadify.min.js'/>
+                <link rel="stylesheet" href="__PUBLIC__/js/uploadify/uploadify.css">
+                <div class="control-group">
+                    <label class="control-label">二维码图片</label>
+                    <div class="controls">
+                        <input type="hidden" name="data[filepath]" value="" id="data_photo" />
+                        <input class="input-xlarge focused"  id="uploadphoto"  type="file" value="">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">二维码预览</label>
+                    <div class="controls">
+                        <img src="" id="photo_img">
+                    </div>
+                </div>
+                <script>
+                    $("#uploadphoto").uploadify({
+                        'swf': '__PUBLIC__/js/uploadify/uploadify.swf?t=<{$nowtime}>',
+                        'uploader': '<{:U("app/upload/uploadify",array("model"=>"goods"))}>',
+                        'cancelImg': '__PUBLIC__/js/uploadify/uploadify-cancel.png',
+                        'buttonText': '上传缩略图',
+                        'fileTypeExts': '*.gif;*.jpg;*.png',
+                        'queueSizeLimit': 1,
+                        'onUploadSuccess': function (file, data, response) {
+                            //alert('sdsadasd')
+                            $("#data_photo").val(data);
+                            $("#photo_img").attr('src', '__ROOT__/attachs/' + data).show();
+                        }
+                    });
+                </script>-->
+
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">确认添加</button>
+                    <!--<button class="btn">Cancel</button>-->
+                </div>
+            </form>
+
+
+
+        </div>
+    </div><!--/span-->
+
+</div><!--/row-->

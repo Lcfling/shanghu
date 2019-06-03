@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <title>江苏快三-中国体育、福利彩票、高频彩开奖结果查询调用接口API - 168彩票开奖网</title>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="168彩票开奖网提供中国体育彩票超级大乐透、排列三、排列五、七星彩、11选五、开奖结果查询，福利彩票双色球、3D、七乐彩、快3、时时彩、快乐8、北京赛车PK10、广东快乐十分等高频彩开奖结果查询调用接口。" />
+    <meta name="keywords" content="彩票开奖查询,彩票开奖,彩票开奖结果,福利彩票开奖结果,体育彩票开奖结果" />
+    <link rel="stylesheet" href="../../css/pk10.css?v=<{$date}>" />
+    <link rel="stylesheet" href="../../css/pk10_Gary.css?v=<{$date}>" />
+    <link rel="stylesheet" href="../../css/common.css?v=<{$date}>" />
+    <link rel="stylesheet" href="../../css/public.css?v=<{$date}>" />
+    <link rel="stylesheet" href="../../css/kuaisan.css?v=<{$date}>" />
+    <script type="text/javascript" src="../../js/lib/jquery-1.9.1.js?v=<{$date}>"></script>
+    <script src="../../js/lib/zepto.js?v=<{$date}>"></script>
+</head>
+
+<body class="wxgzh iphone withHeader article utms-wxgzh utmm-None utmc-None list-page">
+<div id="headdivbox" class="indexContainer withHeader"></div>
+<div class="pagediv">
+    <!--
+        时间：2017-01-07
+        描述：头部开奖
+    -->
+    <div id="touchdiv">
+        <div class="headNum" id="headerData">
+            <div class="divline issuel">
+                <span class="issue"><span class="preDrawIssue">588258</span>期开奖</span>
+                <span class="drawCount">已开<span class="drawCountnum">...</span>期，剩余<span class="sdrawCountnext">...</span>期</span>
+                <span id="explainBtn_plok" class="displayblock" style="display: none;"></span>
+            </div>
+            <div class="divline drawCodel">
+                <ul id="pk10num" class="pk10li numberbox">
+                    <li class="num1"></li>
+                    <li class="num2"></li>
+                    <li class="num3"></li>
+                </ul>
+            </div>
+            <div class="divline drawCodel tiger">
+                <ul class="kuaisan longhu">
+                    <li class="guanyahe li_after">冠亚和：</li>
+                    <li class="guanyaheli li_after">10</li>
+                    <li class="guanyaheli li_after">小</li>
+                    <li class="guanyaheli li_after">大</li>
+                </ul>
+            </div>
+            <div class="divline drawTimebox cuttime">
+                <div class="flexl margtp78">距下期开奖仅有</div>
+                <input type="hidden" class="nextIssue" />
+                <div class="flexc margtp78">
+                    <div class="graypro"></div>
+                    <div class="redpro"></div>
+                    <input type="hidden" class="drawTime" />
+                    <input type="hidden" class="drawIssue" />
+                </div>
+                <div class="flexr margtp78">
+                    <span class="hourid"><span class="bgtime hour"></span>:</span><span class="bgtime minute"></span>:<span class="bgtime second"></span>
+                </div>
+                <div class="flexr">
+							<span class="openVideo" id="startVideo">
+							视频
+						</span>
+                </div>
+            </div>
+            <div class="divline drawTimebox opentyle displaynone">
+                <div class="flexl">开奖中...</div>
+            </div>
+        </div>
+        <!--
+        时间：2017-01-07
+        描述：数据列表头部
+    -->
+        <div class="ListHead">
+            <div class="sort"></div>
+            <div class="headTitle_view">
+                <div class="headTitle headTitle_show">
+                    <div id="kaijianghm" class="checkedbl"><span style="float: left;margin-left: 0.1rem;">开奖号码<i></i></span></div>
+                    <button id="haomalz"><span>号码路珠<i></i></span></button>
+                    <button id="locationzs"><span>定位走势<i></i></span></button>
+                    <button id="sizezs"><span>大小走势<i></i></span></button>
+                    <button id="lishihm"><span>历史号码统计<i></i></span></button>
+                    <button id="hezhizspl"><span>和值走势<i></i></span></button>
+                    <button id="jibenzs"><span>基本走势<i></i></span></button>
+                    <button id="zonghelz"><span>总和路珠<i></i></span></button>
+                    <button id="qiyuzs"><span>奇偶走势<i></i></span></button>
+                </div>
+            </div>
+            <div class="page_main">
+                <div class="tabBoxp tabBox" id="sortable">
+                    <button class="item" id="haomalz"><span>号码路珠<i></i></span></button>
+                    <button class="item" id="locationzs"><span>定位走势<i></i></span></button>
+                    <button class="item" id="sizezs"><span>大小走势<i></i></span></button>
+                    <button class="item" id="lishihm"><span>历史号码统计<i></i></span></button>
+                    <button class="item" id="hezhizspl"><span>和值走势<i></i></span></button>
+                    <button class="item" id="jibenzs"><span>基本走势<i></i></span></button>
+                    <button class="item" id="zonghelz"><span>总和路珠<i></i></span></button>
+                    <button class="item" id="qiyuzs"><span>奇偶走势<i></i></span></button>
+                </div>
+            </div>
+            <!--
+            时间：2017-01-10
+            描述：开奖号码
+        -->
+            <!-- 开奖号码 -->
+            <div class="drawCodebox kaijianghm">
+                <div class="linebox">
+                    <div class="leftspan">
+                        <span class="leftspan">时间</span>
+                        <span class="rightspan padleft1">期数</span>
+                    </div>
+                    <div class="rightspan">
+                        <div class="rightdivhead">
+                            <span id="">号码</span>
+                            <span id="">&nbsp;</span>
+                            <span id="">大小/单双</span>
+                            <span id="gjlh">鱼虾蟹</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contentlist bortop002" id="numlist"></div>
+            </div>
+            <!-- 号码路珠  -->
+            <div class="drawCodebox haomalz displaynone">
+                <div class="linebox">
+                    <div class="haoma_pol option_box">
+                        <ul id="haomalzmcul">
+                            <li value="hm0" class="spl kuaisanct">1</li>
+                            <li value="hm1" class="spl_top kuaisanct">2</li>
+                            <li value="hm2" class="spl_top kuaisanct">3</li>
+                            <li value="hm3" class="spl_top kuaisanct">4</li>
+                            <li value="hm4" class="spl_top kuaisanct">5</li>
+                            <li value="hm5" class="spl_top kuaisanct">6</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="cheDate">
+                    <div class="checkday">
+                        <span class="today_lz checkspan">今天</span>
+                        <span class="yestoday_lz">昨天</span>
+                        <span class="qitian_lz">前天</span>
+                    </div>
+                </div>
+                <div class="lz_content"></div>
+            </div>
+            <!-- 定位走势 -->
+            <div class="drawCodebox locationzs  displaynone">
+                <div class="dingweizsbgcls" style="display:block"> </div>
+                <div class="table_dingwei">
+                    <div class="divtitile">
+                        <p>
+                            <span class="diyiwei"  data-text="0">第一位号码</span>
+                            <span class="shjian">今天</span>
+                            <span class="tiaojian">筛选</span>
+                        </p>
+                        <a class="lookshjtjwei" href="#">查看数据统计</a>
+                    </div>
+                    <div class="table_conBox" id="waitBox">
+                        <div class="xain" id="chartLinediv"></div>
+                        <div class="" id="chartbottom"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- 总和路珠 -->
+            <div class="drawCodebox zonghelz displaynone">
+                <div class="cheDate">
+                    <div class="checkday">
+                        <span class="today_lz checkspan">今天</span>
+                        <span class="yestoday_lz">昨天</span>
+                        <span class="qitian_lz">前天</span>
+                    </div>
+                </div>
+                <div class="lz_content"></div>
+            </div>
+            <!-- 和值走势 -->
+            <div class="drawCodebox hezhizspl displaynone">
+                <div class="qianhuan_pl">
+                    <p class="qianhuan_noe checkspan">和值走势</p>
+                    <p class="qianhuan_top">和值形态</p>
+                </div>
+                <div class="hezhi_pon">
+                    <p>
+                        <span class="weaipl">今天</span>
+                        <span class="kjdsbskj">筛选</span>
+                    </p>
+                    <a class="lookshjtjhe" href="#">查看数据统计</a>
+                </div>
+                <div id="hezhiBox_noe"></div>
+                <div id="hezhiBox_top" style="display: none;"></div>
+            </div>
+            <!-- 基本走势 -->
+            <div class="drawCodebox jibenzs displaynone">
+                <div class="jibenzsbgcls" style="display:block"> </div>
+                <div class="jibenzs_top">
+                    <p>
+                        <span class="xuanxiang">今天</span>
+                        <span class="gaibian">筛选</span>
+                    </p>
+                    <a class="lookshjtjben" href="#">查看数据统计</a>
+                </div>
+                <div id="jibenzsBox"></div>
+            </div>
+            <!-- 奇遇走势 -->
+            <div class="drawCodebox qiyuzs displaynone">
+                <div class="qiyu">
+                    <p class="Pattern_noe checkspan">奇偶个数</p>
+                    <p class="Pattern_pl">奇偶比</p>
+                </div>
+                <div class="divtitile_qiou">
+                    <p>
+                        <span class="weaiqi">今天</span>
+                        <span class="tiaojianyu">筛选</span>
+                    </p>
+                    <a class="lookshjtjyu" href="#">查看数据统计</a>
+                </div>
+                <div id="qiyuzsBox"></div>
+                <div id="qiyuzsBoxtop" style="display: none;"></div>
+            </div>
+            <!-- 快三历史号码统计 -->
+            <div class="drawCodebox lishihm displaynone">
+                <div id="lishihm_Box">
+                    <table border="0" cellspacing="1" cellpadding="1">
+                        <thead>
+                        <tr>
+                            <th style="width: 25%;" width="100">日期</th>
+                            <th width="100">1</th>
+                            <th width="100">2</th>
+                            <th width="100">3</th>
+                            <th width="100">4</th>
+                            <th width="100">5</th>
+                            <th width="100">6</th>
+                            <th width="100">大</th>
+                            <th width="100">小</th>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- 快三大小走势 -->
+            <div class="drawCodebox sizezs displaynone" style="display: none;">
+                <div class="daxiaopl">
+                    <p class="daxiaogeshu_noe checkspan">大小个数</p>
+                    <p class="daxiaobi_top">大小比</p>
+                </div>
+                <div class="dingweizsbgcls" style="display:block"> </div>
+                <div class="divtitile_noe">
+                    <p>
+                        <span class="daxaioyelp">今天</span>
+                        <span class="yixuan">筛选</span>
+                    </p>
+                    <a class="lookshjtjda" href="#">查看数据统计</a>
+                </div>
+                <div id="daxiaoBox">
+                    <table border="0" cellspacing="1" cellpadding="1" id="table_daxiao"></table>
+                </div>
+                <div id="daxiaoBoxtop" style="display: none;">
+                    <!--<table border='0' cellspacing='1' cellpadding='1' id='table_daxiaotop'></table>-->
+                </div>
+            </div>
+        </div>
+        <!-- ---------------------------------------------------------------快三定位走势-->
+        <div class="loteyPage" id="rank_wzzs">
+            <div class="Page_main">
+                <div class="checkTitle"><span>名次选择</span></div>
+                <div class="wei_content">
+                    <div>
+                        <ul id="mingci_dingwei">
+                            <li class="checkedpl" data-text="0">第一位号码</li>
+                            <li data-text="1">第二位号码</li>
+                            <li data-text="2">第三位号码</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="reset"><span>取消</span></div>
+            </div>
+        </div>
+        <div class="loteyPage" id="periods_wzzs">
+            <div class="Page_main">
+                <div class="checkTitle"><span>期数选择</span></div>
+                <div class="wei_content">
+                    <div>
+                        <ul>
+                            <li data-text="0" class="checkedpl">今天</li>
+                            <li data-text="1">昨天</li>
+                            <li data-text="2">前天</li>
+                            <li data-text="30">近30期</li>
+                            <li data-text="60">近60期</li>
+                            <li data-text="90">近90期</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="reset"><span>取消</span></div>
+            </div>
+        </div>
+        <div class="loteyPage" id="tiaojian_wzzs" disabled="true">
+            <div class="Page_main">
+                <div class="checkTitle"><span>条件选择</span></div>
+                <div class="wei_content zhms_mod showms">
+                    <ul class="marginp">
+                        <li data-text="ball_1" class="check_tj yilo">遗漏</li>
+                        <li data-text="ball_2" class="check_tj caix">拆线</li>
+                        <li data-text="ball_3" class="fancong">遗漏分层</li>
+                        <li data-text="ball_4" class="fgx">分割线</li>
+                    </ul>
+                </div>
+                <div class="btngrulp">
+                    <span class="reset">取消</span>
+                    <span class="sure">确定</span>
+                </div>
+            </div>
+        </div>
+        <!-- ---------------------------------------------------------------快三大小走势-->
+        <div class="loteyPage" id="dapook_wzze">
+            <div class="Page_main">
+                <div class="checkTitle"><span>期数选择</span></div>
+                <div class="wei_content">
+                    <div>
+                        <ul>
+                            <li data-text="0" class="checkedpl">今天</li>
+                            <li data-text="1">昨天</li>
+                            <li data-text="2">前天</li>
+                            <li data-text="30">近30期</li>
+                            <li data-text="60">近60期</li>
+                            <li data-text="90">近90期</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="reset"><span>取消</span></div>
+            </div>
+        </div>
+        <div class="loteyPage" id="xiaopook_wzze" disabled="true">
+            <div class="Page_main">
+                <div class="checkTitle"><span>条件选择</span></div>
+                <div class="wei_content zhms_mod showms">
+                    <ul class="marginp">
+                        <li data-text="ball_1" class="check_tj yilo">遗漏</li>
+                        <li data-text="ball_2" class="check_tj caix">拆线</li>
+                        <li data-text="ball_3" class="fancong">遗漏分层</li>
+                        <li data-text="ball_4" class="fgx">分割线</li>
+                    </ul>
+                </div>
+                <div class="btngrulp">
+                    <span class="reset">取消</span>
+                    <span class="sure">确定</span>
+                </div>
+            </div>
+        </div>
+        <!-- ---------------------------------------------------------------快三和值走势-->
+        <div class="loteyPage" id="hetrem_wzze">
+            <div class="Page_main">
+                <div class="checkTitle"><span>期数选择</span></div>
+                <div class="wei_content">
+                    <div>
+                        <ul>
+                            <li data-text="0" class="checkedpl">今天</li>
+                            <li data-text="1">昨天</li>
+                            <li data-text="2">前天</li>
+                            <li data-text="30">近30期</li>
+                            <li data-text="60">近60期</li>
+                            <li data-text="90">近90期</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="reset"><span>取消</span></div>
+            </div>
+        </div>
+        <div class="loteyPage" id="zhitrem_wzze" disabled="true">
+            <div class="Page_main">
+                <div class="checkTitle"><span>条件选择</span></div>
+                <div class="wei_content zhms_mod showms">
+                    <ul class="marginp">
+                        <li data-text="ball_1" class="check_tj yilo">遗漏</li>
+                        <li data-text="ball_2" class="check_tj caix">拆线</li>
+                        <li data-text="ball_3" class="fancong">遗漏分层</li>
+                        <li data-text="ball_4" class="fgx">分割线</li>
+                    </ul>
+                </div>
+                <div class="btngrulp">
+                    <span class="reset">取消</span>
+                    <span class="sure">确定</span>
+                </div>
+            </div>
+        </div>
+        <!-- ---------------------------------------------------------------快三基本走势-->
+        <div class="loteyPage" id="sanjigrot_wzze">
+            <div class="Page_main">
+                <div class="checkTitle"><span>期数选择</span></div>
+                <div class="wei_content">
+                    <div>
+                        <ul>
+                            <li data-text="0" class="checkedpl">今天</li>
+                            <li data-text="1">昨天</li>
+                            <li data-text="2">前天</li>
+                            <li data-text="30">近30期</li>
+                            <li data-text="60">近60期</li>
+                            <li data-text="90">近90期</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="reset"><span>取消</span></div>
+            </div>
+        </div>
+        <div class="loteyPage" id="bengrot_wzze" disabled="true">
+            <div class="Page_main">
+                <div class="checkTitle"><span>条件选择</span></div>
+                <div class="wei_content zhms_mod showms">
+                    <ul class="marginp">
+                        <li data-text="ball_1" class="check_tj yilo">遗漏</li>
+                        <li data-text="ball_2" class="check_tj caix">拆线</li>
+                        <li data-text="ball_3" class="fancong">遗漏分层</li>
+                        <li data-text="ball_4" class="fgx">分割线</li>
+                    </ul>
+                </div>
+                <div class="btngrulp">
+                    <span class="reset">取消</span>
+                    <span class="sure">确定</span>
+                </div>
+            </div>
+        </div>
+        <!-- ---------------------------------------------------------------快三奇遇走势-->
+        <div class="loteyPage" id="qiyulist_wzze">
+            <div class="Page_main">
+                <div class="checkTitle"><span>期数选择</span></div>
+                <div class="wei_content">
+                    <div>
+                        <ul>
+                            <li data-text="0" class="checkedpl">今天</li>
+                            <li data-text="1">昨天</li>
+                            <li data-text="2">前天</li>
+                            <li data-text="30">近30期</li>
+                            <li data-text="60">近60期</li>
+                            <li data-text="90">近90期</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="reset"><span>取消</span></div>
+            </div>
+        </div>
+        <div class="loteyPage" id="qiyunot_wzze" disabled="true">
+            <div class="Page_main">
+                <div class="checkTitle"><span>条件选择</span></div>
+                <div class="wei_content zhms_mod showms">
+                    <ul class="marginp">
+                        <li data-text="ball_1" class="check_tj yilo">遗漏</li>
+                        <li data-text="ball_2" class="check_tj caix">拆线</li>
+                        <li data-text="ball_3" class="fancong">遗漏分层</li>
+                        <li data-text="ball_4" class="fgx">分割线</li>
+                    </ul>
+                </div>
+                <div class="btngrulp">
+                    <span class="reset">取消</span>
+                    <span class="sure">确定</span>
+                </div>
+            </div>
+        </div>
+        <!--快三玩法说明-->
+        <div class="explian_shows">
+            <!-- 快三号码路珠说明 -->
+            <div id="haomalz_pm" class="displaynone">
+                <p class="smhead">
+                    <span><i class="smicon"></i>帮助说明</span>
+                    <a href="../wfgz_index/index.html">玩法规则介绍</a>
+                </p>
+                <div class="cotentinfo">
+                    <p><i>"X":</i>表示历史对应的某一期未出现该号码;</p>
+                    <p><i>"√":</i>表示历史对应的某一期出现该号码</p>
+                </div>
+                <span class="closesm">关闭</span>
+            </div>
+            <!-- 快三定位走势说明 -->
+            <div id="locationzs_pm" class="displaynone">
+                <p class="smhead">
+                    <span><i class="smicon"></i>帮助说明</span>
+                    <a href="../wfgz_index/index.html">玩法规则介绍</a>
+                </p>
+                <div class="cotentinfo">
+                    <p><i>大小:</i><i class="info_arr">1,2,3为小，4,5,6为大</i></p>
+                    <p><i>单双:</i><i class="info_arr">1,3,5为单，2,4,6位双</i></p>
+                    <p><i>遗漏期数:</i><i class="info_arr">自上期开出到本期间隔的期数</i></p>
+                    <p><i class="info_noe">分隔线:</i><i class="info_arr">每五期使用分隔线，是横向导航更加清晰</i></p>
+                    <p><i>出现次数:</i><i class="info_arr">统计周期内，某个号码的累计出现次数</i></p>
+                    <p><i class="info_top">平均遗漏:</i><i class="info_arr">统计期数内遗漏的平均值(计算公式:平均遗漏=统计期内的总遗漏数/(<br />出现次数+1))</i></p>
+                    <p><i>最大遗漏:</i><i class="info_arr">是指统计周期内所有遗漏值得最大值</i></p>
+                    <p><i>最大连出:</i><i class="info_arr">是指统计周期内所有连出值得最大值</i></p>
+                </div>
+                <span class="closesm">关闭</span>
+            </div>
+            <!--快三和值走势玩法说明-->
+            <div id="hezhizspl_pm" class="displaynone">
+                <p class="smhead">
+                    <span><i class="smicon"></i>帮助说明</span>
+                    <a href="../wfgz_index/index.html">玩法规则介绍</a>
+                </p>
+                <div class="cotentinfo">
+                    <p><i>和值:</i><i class="info_arr">开奖号码相加之和，范围3~18;</i></p>
+                    <p><i class="info_noe">和值大小:</i><i class="info_arr">和值大于等于11为大，和值小于等于10位小</i></p>
+                    <p><i>和值单双:</i><i class="info_arr">和值奇数为单，和值偶数为双</i></p>
+                    <p><i>遗漏期数:</i><i class="info_arr">自上期开出到本期间隔的期数</i></p>
+                    <p><i>分割线:</i><i class="info_arr">每五期使用分割线，是横向导航更加清晰</i></p>
+                </div>
+                <span class="closesm">关闭</span>
+            </div>
+            <!--快三基本走势玩法说明-->
+            <div id="jibenzs_pm" class="displaynone">
+                <p class="smhead">
+                    <span><i class="smicon"></i>帮助说明</span>
+                    <a href="../wfgz_index/index.html">玩法规则介绍</a>
+                </p>
+                <div class="cotentinfo">
+                    <p><i class="info_noe">豹子:</i><i class="info_arr">中将号码的三个数字都相同，如中奖号码为111,222,333等;</i></p>
+                    <p><i class="info_noe">对子:</i><i class="info_arr">中奖号码的任意两个数字相同。(不包括豹子)如中奖号码为121,112,211等</i></p>
+                    <p><i class="info_noe">三不同:</i><i class="info_arr">不包括豹子，对子，的所有中奖号码。如为136,624等</i></p>
+                </div>
+                <span class="closesm">关闭</span>
+            </div>
+            <!--快三奇遇走势玩法说明-->
+            <div id="qiyuzs_pm" class="displaynone">
+                <p class="smhead">
+                    <span><i class="smicon"></i>帮助说明</span>
+                    <a href="../wfgz_index/index.html">玩法规则介绍</a>
+                </p>
+                <div class="cotentinfo">
+                    <p><i>遗漏:</i><i class="info_arr">自上期开出到本期间隔的期数</i></p>
+                    <p><i>遗漏分层:</i><i class="info_arr">将当期遗漏标注出来</i></p>
+                    <p><i>分隔线:</i><i class="info_arr">每五期使用分隔线,使横向导航更加清晰</i></p>
+                    <p><i>出现次数:</i><i class="info_arr">统计周期内,某个号码的累计出现次数</i></p>
+                    <p><i class="info_noe">平均遗漏:</i><i class="info_arr">统计期数内遗漏的平均值(计算公式:平均遗漏=统计期内的总遗漏数/(出现次数+1))</i></p>
+                </div>
+                <span class="closesm">关闭</span>
+            </div>
+            <!--快三总和路珠玩法说明-->
+            <div id="zonghelz_pm" class="displaynone">
+                <p class="smhead">
+                    <span><i class="smicon"></i>帮助说明</span>
+                    <a href="../wfgz_index/index.html">玩法规则介绍</a>
+                </p>
+                <div class="cotentinfo">
+                    <p><i>"小":</i><i class="info_arr">三粒骰子支点数总和由4点至10点</i></p>
+                    <p><i style="height: 0.6rem;">"大":</i><i class="info_arr">三粒骰子之点数总和由11点至17点;若三粒骰子平面点数相同,则为通吃,通吃『大』,『小』咯注</i></p>
+                    <p><i>"单":</i><i class="info_arr">三粒骰子之点数总和为单数</i></p>
+                    <p><i>"双":</i><i class="info_arr">三粒骰子之点数总和为双数;若三粒骰子平面点数相同,则为通吃,通吃『单』,『』咯注</i></p>
+                </div>
+                <span class="closesm">关闭</span>
+            </div>
+            <!--快三大小走势玩法说明-->
+            <div id="sizezs_pm" class="displaynone">
+                <p class="smhead">
+                    <span><i class="smicon"></i>帮助说明</span>
+                    <a href="../wfgz_index/index.html">玩法规则介绍</a>
+                </p>
+                <div class="cotentinfo">
+                    <p><i>遗漏:</i><i class="info_arr">自上期开出到本期间隔的期数</i></p>
+                    <p><i>遗漏分层:</i><i class="info_arr">将当期遗漏标注出来</i></p>
+                    <p><i class="info_noe">分隔线:</i><i class="info_arr">每五期使用分隔线，是横向导航更加清晰</i></p>
+                    <p><i>出现次数:</i><i class="info_arr">统计周期内，某个号码的累计出现次数</i></p>
+                    <p><i class="info_noe">平均遗漏:</i><i class="info_arr">统计期数内遗漏的平均值(计算公式:平均遗漏=统计期内的总遗漏数/(出现次数+1))</i></p>
+                </div>
+                <span class="closesm">关闭</span>
+            </div>
+        </div>
+        <!--
+        时间：2017-01-07
+        描述：数据列表
+    -->
+        <div id="footerDiv"></div>
+
+    </div>
+    <div id="videobox">
+        <div class="content">
+            <div class="head">
+                江苏快3开奖视频
+                <div class="btn">
+                    <ul>
+                        <li class="closevideo"><i class="iconfont">关闭</i></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="animate" style="margin: 0 auto;">
+                <iframe style="height:100%;width:100%;border: none;" src="../../js/lib/video/kuai3_video/Kuai3.html"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../js/lib/jquery.async.js?v=<{$date}>"></script>
+<script src="../../js/lib/drawLines.js?v=<{$date}>"></script>
+<script src="../../js/lib/pk10BaseTrend.js?v=<{$date}>"></script>
+<script type="text/javascript" src="../../js/lib/date.js?v=<{$date}>"></script>
+<script type="text/javascript" src="../../js/lib/iscroll.js?v=<{$date}>"></script>
+<script type="text/javascript" src="../../js/lib/config.js?v=<{$date}>"></script>
+<script type="text/javascript" src="../../js/local/tools/tools.js?v=<{$date}>"></script>
+<script type="text/javascript" src="../../js/local/jsks/head_jsks.js?v=<{$date}>"></script>
+<script type="text/javascript" src="../../js/local/jsks/index.js?v=<{$date}>"></script>
+<script type="text/javascript" src="../../js/lib/GA.js?v=<{$date}>"></script>
+<div id="datePlugin"></div>
+</body>
+
+</html>

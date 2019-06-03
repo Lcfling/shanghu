@@ -1,0 +1,40 @@
+<header id="indexHeader">
+    <div class="top_menu_bar">
+        <div class="top_menu_left">
+            <a href="../../index.html"><img src="../../img/logo_phone.png" alt="" /></a>
+        </div>
+        <div class="top_menu_middle" id="caizhong_name">
+            <span id="titlespan"></span>
+        </div>
+        <div class="top_menu_more">
+			<span class="more_btn">
+			<span id="showtime"></span>
+			<input type="hidden" id="yearmothnday" />
+			<input type="text" id="beginTime" class="" readonly="disabled" />
+			</span>
+        </div>
+    </div>
+</header>
+<script>
+    $(function() {
+        $("#cZList").on("click","li",function(){
+            tools.openAllCz(false); //关闭所有彩种列表
+        });
+        $("#indexHeader").on("touchstart", "#caizhong_name", function() {
+//			bodyHtmlhide();
+            $("#cZList").scrollTop(-50);
+            $(".tabBox").removeClass("hasheight");
+            $("#touchlongmove").removeClass("gotop")
+            $(".sort").removeClass("bgsize");
+            tools.openAllCz(true); //打开所有彩种列表
+        });
+        //所有彩种
+        $("#cZList .backbtn").on("click", "span:nth-child(1)", function() {
+            tools.openAllCz(false); //关闭所有彩种列表
+            bodyHtmlvis();
+        });
+        /*$("#indexHeader .top_menu_left").on("touchstart", "img", function() {
+            window.location.href="../../index.html";
+        });*/
+    });
+</script>

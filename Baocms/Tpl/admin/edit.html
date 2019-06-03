@@ -1,0 +1,79 @@
+<include  file='public:head'/>
+
+
+
+
+    <div class="row-fluid sortable">
+        <div class="box span12">
+            <div class="box-header" data-original-title>
+                <h2><i class="halflings-icon white align-justify"></i><span class="break"></span>添加支付宝</h2>
+                <div class="box-icon">
+                    <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                </div>
+            </div>
+            <div class="box-content">
+
+                <form target="baocms_frm" class="form-horizontal" action="<{:U('admin/edit',array('admin_id'=>$detail['admin_id']))}>" method="post">
+                    <div class="control-group">
+                        <label class="control-label" for="inputname">密码</label>
+                        <div class="controls">
+                            <input class="input-xlarge focused" id="inputname" name="data[password]" type="text" value="******">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputbank">手机号</label>
+                        <div class="controls">
+                            <input class="input-xlarge focused" id="inputbank" name="data[mobile]" type="text" value="<{$detail.mobile|default=''}>">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="role">角色</label>
+                        <div class="controls">
+                            <select name="data[role_id]" class="seleFl w150" style="display: inline-block;" id="role">
+                                <foreach name="roles" item="var">
+                                    <option value="<{$var.role_id}>" <eq name="var.role_id" value="$detail.role_id">selected="selected"</eq> ><{$var.role_name}></option>
+                                </foreach>
+                            </select>
+                            <code>必须选择正确的角色</code>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputbank">费率</label>
+                        <div class="controls">
+                            <input class="input-xlarge focused" name="data[rate]" type="text" value="<{$detail.rate|default=''}>">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputbank">商户号</label>
+                        <div class="controls">
+                            <input class="input-xlarge disabled" disabled type="text" value="<{$detail.brandid|default=''}>">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputbank">密钥</label>
+                        <div class="controls">
+                            <input class="input-xlarge disabled" disabled type="text" value="<{$detail.merId|default=''}>">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputbank">最低限额</label>
+                        <div class="controls">
+                            <input class="input-xlarge focused" name="data[minpay]" type="text" value="<{$detail.minpay|default=''}>">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">确认修改</button>
+                        <!--<button class="btn">Cancel</button>-->
+                    </div>
+                </form>
+
+
+
+            </div>
+        </div><!--/span-->
+
+</div>
+
+
+
+

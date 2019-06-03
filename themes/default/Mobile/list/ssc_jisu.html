@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <title>极速时时彩-中国体育、福利彩票、高频彩开奖结果查询调用接口API - 168彩票开奖网</title>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="168彩票开奖网提供中国体育彩票超级大乐透、排列三、排列五、七星彩、11选五、开奖结果查询，福利彩票双色球、3D、七乐彩、快3、时时彩、快乐8、北京赛车PK10、广东快乐十分等高频彩开奖结果查询调用接口。" />
+    <meta name="keywords" content="彩票开奖查询,彩票开奖,彩票开奖结果,福利彩票开奖结果,体育彩票开奖结果" />
+    <link rel="stylesheet" href="../../css/pk10.css?v=<{$date}>" />
+    <link rel="stylesheet" href="../../css/common.css?v=<{$date}>" />
+    <link rel="stylesheet" href="../../css/public.css?v=<{$date}>" />
+    <link rel="stylesheet" href="../../css/ssc_index_add.css?v=<{$date}>" />
+    <link rel="stylesheet" href="../../css/ssc_newVersion.css?v=<{$date}>" />
+    <script type="text/javascript" src="../../js/lib/jquery-1.9.1.js?v=<{$date}>"></script>
+</head>
+
+<body class="wxgzh iphone withHeader article utms-wxgzh utmm-None utmc-None list-page">
+<div id="headdivbox" class="indexContainer withHeader"></div>
+<div class="pagediv">
+    <!--
+        时间：2017-01-07
+        描述：头部开奖
+    -->
+    <div id="touchdiv">
+        <div class="headNum" id="headerData">
+            <div class="divline issuel">
+                <span class="issue"><span class="preDrawIssue">588258</span>期开奖</span>
+                <span class="drawCount">已开<span class="drawCountnum">...</span>期，剩余<span class="sdrawCountnext">...</span>期</span>
+                <span id="explainBtn_wfsm" class="displaynone"></span>
+            </div>
+            <div class="divline drawCodel">
+                <ul id="pk10num" class="sscli">
+                    <li>03</li>
+                    <li>01</li>
+                    <li>05</li>
+                    <li>06</li>
+                    <li>04</li>
+                </ul>
+            </div>
+            <div class="divline drawCodel tiger">
+                <ul class="pk10li longhu">
+                    <li class="li_after">虎</li>
+                    <li class="verline li_after">|</li>
+                    <li class="guanyahe li_after">总和：</li>
+                    <li class="guanyaheli li_after">10</li>
+                    <li class="guanyaheli li_after">单</li>
+                    <li class="guanyaheli li_after">大</li>
+                </ul>
+            </div>
+            <div class="divline drawTimebox cuttime">
+                <div class="flexl margtp78">距下期开奖仅有</div>
+                <input type="hidden" class="nextIssue" />
+                <div class="flexc margtp78">
+                    <div class="graypro"></div>
+                    <div class="redpro"></div>
+                </div>
+                <div class="flexr margtp78">
+                    <span class="hourid"><span class="bgtime hour"></span>:</span><span class="bgtime minute"></span>:<span class="bgtime second"></span>
+                </div>
+                <div class="flexr">
+							<span class="openVideo" id="startVideo">
+							视频
+						</span>
+                </div>
+            </div>
+            <div class="divline drawTimebox opentyle displaynone">
+                <div class="flexl">开奖中...</div>
+            </div>
+        </div>
+        <!--
+        时间：2017-01-07
+        描述：数据列表头部
+    -->
+        <div class="ListHead">
+            <div class="sort"></div>
+            <div class="headTitle_view">
+                <div class="headTitle headTitle_gary headTitle_widthreset">
+                    <div id="kaijianghm" class="checkedbl"><span>开奖号码<i></i></span></div>
+                    <button id="shuangmiantj"><span>双面统计<i></i></span></button>
+                    <button id="changlongtj"><span>长龙统计<i></i></span></button>
+                    <button id="haomafb"><span>号码分布<i></i></span></button>
+                    <!--<button id="dsdxls"><span>单双大小历史<i></i></span></button>-->
+                    <button id="dsdxlz"><span>单双大小路珠<i></i></span></button>
+                    <!--<button id="lishihmtj"><span>历史号码统计<i></i></span></button>-->
+                    <button id="longhuzs"><span>龙虎走势<i></i></span></button>
+                    <button id="hmqhlz"><span>号码路珠<i></i></span></button>
+                    <button id="lenrefx"><span>冷热分析<i></i></span></button>
+                    <button id="luzufx"><span>路珠分析<i></i></span></button>
+                    <button id="guyahelz"><span>总和路珠<i></i></span></button>
+                    <button id="todayhaomatj"><span>号码统计<i></i></span></button>
+                    <button id="singtaizs"><span>形态走势<i></i></span></button>
+                    <button id="haomazs"><span>基本走势<i></i></span></button>
+                    <button id="wezizs"><span>定位走势<i></i></span></button>
+
+                </div>
+            </div>
+            <div class="page_main">
+                <div class="tabBox" id="sortable">
+                    <button class="item" id="shuangmiantj"><span>双面统计<i></i></span></button>
+                    <button class="item" id="changlongtj"><span>长龙统计<i></i></span></button>
+                    <button class="item" id="haomafb"><span>号码分布<i></i></span></button>
+                    <!--<button class="item" id="dsdxls"><span>单双大小历史<i></i></span></button>-->
+                    <button class="item" id="dsdxlz"><span>单双大小路珠<i></i></span></button>
+                    <!--<button class="item" id="lishihmtj"><span>历史号码统计<i></i></span></button>-->
+                    <button class="item" id="longhuzs"><span>龙虎走势<i></i></span></button>
+                    <button class="item" id="hmqhlz"><span>号码路珠<i></i></span></button>
+                    <button class="item" id="lenrefx"><span>冷热分析<i></i></span></button>
+                    <button class="item" id="luzufx"><span>路珠分析<i></i></span></button>
+                    <button class="item" id="guyahelz"><span>总和路珠<i></i></span></button>
+                    <button class="item" id="todayhaomatj"><span>号码统计<i></i></span></button>
+                    <button class="item" id="singtaizs"><span>形态走势<i></i></span></button>
+                    <button class="item" id="haomazs"><span>基本走势<i></i></span></button>
+                    <button class="item" id="wezizs"><span>定位走势<i></i></span></button>
+                </div>
+            </div>
+            <!--
+            时间：2017-01-10
+            描述：开奖号码
+        -->
+            <div class="drawCodebox kaijianghm">
+                <div class="linebox">
+                    <div class="leftspan">
+                        <span class="leftspan">时间</span>
+                        <span class="rightspan padleft1">期数</span>
+                    </div>
+                    <div class="rightspan">
+                        <div class="rightdiv"  >
+                            <span id="xshm" class="spanchecked">号码</span>
+                            <span id="xsdx">大小</span>
+                            <span id="xsds">单双</span>
+                            <span id="gjlh">总和/形态</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contentlist bortop002" id="numlist">
+                </div>
+            </div>
+            <div class="drawCodebox shuangmiantj displaynone">
+                <div class="line2box" id="liangmianbox">
+                </div>
+            </div>
+            <div class="drawCodebox changlongtj displaynone">
+                <div class="line2box">
+                    <ul id="longDrag">
+                    </ul>
+                </div>
+            </div>
+            <div class="drawCodebox haomafb displaynone">
+                <div class="linebox">
+                    <div class="numbtn">
+                        <ul>
+                            <li>0</li>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                            <li>6</li>
+                            <li>7</li>
+                            <li>8</li>
+                            <li>9</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="linebox">
+                    <div class="dansdxbtn">
+                        <ul>
+                            <li>单</li>
+                            <li>双</li>
+                            <li>大</li>
+                            <li>小</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="contentlist bortop002" id="haomafblist">
+                </div>
+            </div>
+
+            <!--------------------------------eva-->
+            <!--单双大小历史-->
+            <div class="drawCodebox dsdxls displaynone">
+                <div class="navTab">
+                    <span id="zhCheck">综合查看<i class="iActClass"></i></span>
+                    <span id="personCheck">单个查看<i></i></span>
+                </div>
+                <div class="minciList" id="zhkanList">
+                    <div id="minciBox">
+                        <ul>
+                            <li class="minciLiAct">第一球<i>0</i></li>
+                            <li>第二球<i>1</i></li>
+                            <li>第三球<i>2</i></li>
+                            <li>第四球<i>3</i></li>
+                            <li>第五球<i>4</i></li>
+                        </ul>
+                    </div>
+                    <div id="tableBox">
+                        <table border="0" cellspacing="1" cellpadding="1">
+                            <thead>
+                            <tr>
+                                <th>日期</th>
+                                <th>大</th>
+                                <th>小</th>
+                                <th>单</th>
+                                <th>双</th>
+                            </tr>
+                            </thead>
+                            <!--1-10名的表格数据-->
+                            <tbody id="tbody0">
+                            <tr></tr>
+                            </tbody>
+                            <tbody id="tbody1" class="displaynone">
+                            <tr></tr>
+                            </tbody>
+                            <tbody id="tbody2" class="displaynone">
+                            <tr></tr>
+                            </tbody>
+                            <tbody id="tbody3" class="displaynone">
+                            <tr></tr>
+                            </tbody>
+                            <tbody id="tbody4" class="displaynone">
+                            <tr></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="dsdxList" id="personList" style="display: none;">
+                    <div id="dsdxBox">
+                        <ul>
+                            <li class="dsdxActcolor">单<i>0</i></li>
+                            <li>双<i>1</i></li>
+                            <li>大<i>2</i></li>
+                            <li>小<i>3</i></li>
+                        </ul>
+                    </div>
+                    <div id="getiTable">
+                        <table border="0" cellspacing="1" cellpadding="1">
+                            <thead>
+                            <tr>
+                                <th>日期</th>
+                                <th>第一球</th>
+                                <th>第二球</th>
+                                <th>第三球</th>
+                                <th>第四球</th>
+                                <th>第五球</th>
+                            </tr>
+                            </thead>
+                            <!--1-10名的表格数据-->
+                            <tbody id="gtbody0">
+                            <tr></tr>
+                            </tbody>
+                            <tbody id="gtbody1" class="displaynone">
+                            <tr></tr>
+                            </tbody>
+                            <tbody id="gtbody2" class="displaynone">
+                            <tr></tr>
+                            </tbody>
+                            <tbody id="gtbody3" class="displaynone">
+                            <tr></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--单双大小路珠-->
+            <div class="drawCodebox dsdxlz displaynone">
+                <div id="dsdxlzBox">
+                    <div class="timeTab_dsdxlz">
+                        <span id="shaixuanBtn_dsdxlz">筛选<i></i></span>
+                        <ul id="timeUl_dsdxlz">
+                            <li id="today_dsdxlz" class="todayAct_dsdxlz">今天</li>
+                            <li id="yesterday_dsdxlz">昨天</li>
+                            <li id="qianday_dsdxlz">前天</li>
+                        </ul>
+                    </div>
+                    <div id="dsdxlzlist">
+                        <div class="dsdxlzItems dsdxlz_content">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--历史号码统计-->
+            <div class="drawCodebox lishihmtj displaynone">
+                <div class="lshmtj_navTab">
+                    <span id="hmCheck">号码查看<i class="iActClass"></i></span>
+                    <span id="xtCheck">形态查看<i></i></span>
+                </div>
+                <div class="minciList" id="lshmtj_hmkanList">
+                    <ul class="firstul">
+                        <li>日期</li>
+                        <li>0</li>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li>7</li>
+                        <li>8</li>
+                        <li>9</li>
+                    </ul>
+                    <div class="ulDiv"></div>
+                </div>
+                <div class="dsdxList" id="lshmtj_xtList" style="display: none;">
+                    <ul class="firstul">
+                        <li>日期</li>
+                        <li>单</li>
+                        <li>双</li>
+                        <li>大</li>
+                        <li>小</li>
+                        <li>龙</li>
+                        <li>虎</li>
+                        <li>平</li>
+                    </ul>
+                    <div class="ulDiv"></div>
+                </div>
+            </div>
+            <!--龙虎走势-->
+            <div class="drawCodebox longhuzs displaynone">
+                <div id="gltjhead">
+                    <div class="gyhHead">
+                        <ul>
+                            <li id="gyhtodayBtn"><span>今天</span><i></i></li>
+                            <li id="gyhsxBtn"><span>筛选</span><i></i></li>
+                        </ul>
+                        <a class="gyhcksjtj" href="#">查看数据统计</a>
+                    </div>
+                    <div class="table_conBox_gyh" id="waitBox">
+                        <div class="gyhdateBox" id="chartLinediv">
+                            <table id="trend_table2_gyhzs" border="0" cellspacing="1" cellpadding="1">
+                                <thead>
+                                <tr>
+                                    <th width="30%">期号</th>
+                                    <th width="30%">开奖号码</th>
+                                    <th>龙</th>
+                                    <th>虎</th>
+                                    <th>和</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="chartbottom"><table></table></div>
+                        <div class="lomorediv lhzslodiv" data-text="0">
+                            <span id="lhzslo_left" class="prevlo">&larr;</span>
+                            <span id="lhzslo_right" class="nextlo">&rarr;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--号码路珠-->
+            <div class="drawCodebox hmqhlz displaynone">
+                <div id="hmqhlzBox">
+                    <div class="numtabHmlz">
+                        <ul id="hmqhlzmcul">
+                            <li value="hm1" class="hmqhlzHMAct">0</li>
+                            <li value="hm2" class="hmqhlzHMAct">1</li>
+                            <li value="hm3" class="hmqhlzHMAct">2</li>
+                            <li value="hm4" class="hmqhlzHMAct">3</li>
+                            <li value="hm5" class="hmqhlzHMAct">4</li>
+                            <li value="hm6" class="hmqhlzHMAct">5</li>
+                            <li value="hm7" class="hmqhlzHMAct">6</li>
+                            <li value="hm8" class="hmqhlzHMAct">7</li>
+                            <li value="hm9" class="hmqhlzHMAct">8</li>
+                            <li value="hm10" class="hmqhlzHMAct">9</li>
+                        </ul>
+                    </div>
+                    <div class="timeTab">
+                        <!--<span id="hmqhlzsxBtn">筛选<i></i></span>-->
+                        <ul id="timeUl">
+                            <li id="qhlztoday" class="hmqhlxdayAct">今天</li>
+                            <li id="qhlzyesterday">昨天</li>
+                            <li id="qhlzqianday">前天</li>
+                        </ul>
+                    </div>
+                    <div id="hmqhlzlist">
+                        <div class="hmqhlzItems lz_content">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--冷热分析 -->
+            <div class=" drawCodebox lenrefx displaynone">
+                <div class="showconten">
+                    <!--<div class="item_lere1 item_">
+                        <span class="item_title">冠军</span>
+                        <ul class="num_item">
+                            <li class="li_first">热号</li>
+                            <li class="hotnum">1 <i>6</i></li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                        </ul>
+                        <ul class="">
+                            <li class="li_first">温号</li>
+                            <li>11</li>
+                            <li>8</li>
+                            <li>15</li>
+                            <li>9</li>
+                            <li>12</li>
+                            <li>8</li>
+                            <li>7</li>
+                        </ul>
+                        <ul class="">
+                            <li class="li_first">冷号</li>
+                            <li>11</li>
+                            <li>8</li>
+                            <li>35</li>
+                            <li>9</li>
+                            <li>12</li>
+                            <li>8</li>
+                        </ul>
+                    </div>-->
+                </div>
+            </div>
+
+            <!--定位走势-->
+            <div class="drawCodebox wezizs haomazs displaynone">
+                <div class="haomazsbgcls" style="display: none;"></div>
+                <div class="Pattern" style="display: -webkit-box;">
+                    <span class="hamafb checkspan">号码分布</span>
+                    <span class="sttz">形态特征</span>
+                    <span class="lu012">012路</span>
+                    <span class="spj">升平降</span>
+                </div>
+                <div class="table_conditions">
+                    <div class="divtitile">
+                        <p>
+                            <span class="weai" data-text="0">第一球</span>
+                            <span class="shjian">今天</span>
+                            <span class="tiaojian">筛选</span>
+                        </p>
+                        <a class="lookshjtj" href="#">查看数据统计</a>
+                    </div>
+                    <div class="table_conBox" id="waitBox">
+
+
+                        <div class="" id="chartLinediv">
+                            <!--<script>
+                                var htmll ="";
+                                for(var i=0;i<4000;i++){
+                                    htmll += "<tr><td><img src='../../img/test.png?v=2018"+i+"'/></td><td><img src='../../img/test.png?v=2018"+i+"'/></td><td><img src='../../img/test.png?v=2018"+i+"'/></td><td><img src='../../img/test.png?v=2018"+i+"'/></td><td><img src='../../img/test.png?v=2018"+i+"'/></td><td><img src='../../img/test.png?v=2018"+i+"'/></td><td><img src='../../img/test.png?v=2018"+i+"'/></td><td><img src='../../img/test.png?v=2018"+i+"'/></td><td><img src='../../img/test.png?v=2018"+i+"'/></td><td><img src='../../img/test.png?v=2018"+i+"'/></td></tr>";
+                                }
+                                $("#trend_table2_gyhzs tbody").html(htmll)
+                            </script>-->
+                            <!--</tbody>
+                        </table>-->
+                        </div>
+                        <div class="" id="chartbottom">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>期号</th>
+                                    <th>号码</th>
+                                    <th>0</th>
+                                    <th>1</th>
+                                    <th>2</th>
+                                    <th>3</th>
+                                    <th>4</th>
+                                    <th>5</th>
+                                    <th>6</th>
+                                    <th>7</th>
+                                    <th>8</th>
+                                    <th>9</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <div class="lomorediv weizilodiv" data-text="0">
+                            <span id="weizilo_left" class="prevlo">&larr;</span>
+                            <span id="weizilo_right" class="nextlo">&rarr;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--路珠分析-->
+            <div class="drawCodebox luzufx displaynone">
+                <div class="Pattern">
+                    <span class="zonghu checkspan">综合模式</span>
+                    <span class="danxms ">单选模式</span>
+                    <span class="lmms">两面模式</span>
+                </div>
+                <div class="cheDate">
+                    <span class="checkclick_lz">条件筛选</span>
+                    <div class="checkday">
+                        <span class="today_lz checkspan">今天</span>
+                        <span class="yestoday_lz">昨天</span>
+                        <span class="qitian_lz">前天</span>
+                    </div>
+                </div>
+                <div class="lz_content"></div>
+            </div>
+
+            <!--总和路珠-->
+            <div class="drawCodebox guyahelz displaynone">
+                <div class="cheDate">
+                    <div class="checkday">
+                        <span class="today_lz checkspan">今天</span>
+                        <span class="yestoday_lz">昨天</span>
+                        <span class="qitian_lz">前天</span>
+                    </div>
+                </div>
+                <div class="lz_content"></div>
+            </div>
+
+            <!--号码统计 -->
+            <div class=" drawCodebox todayhaomatj displaynone">
+                <div class="checkshow">
+                    <span class="checkClick">筛选 <i></i></span>
+                    <span>
+			    			值为15-30时为<span class="red">红色</span>31-40为<span class="blue">蓝色</span>41-50时为<span class="green">绿色</span>
+							</span>
+                </div>
+                <div class="showconten"></div>
+            </div>
+
+            <!--形态走势-->
+            <div class="drawCodebox singtaizs displaynone">
+                <div class="haomazsbgcls"></div>
+                <div class="Pattern">
+                    <span class="hamafb checkspan" data-text="0">前三形态</span>
+                    <span class="sttz" data-text="1">中三形态</span>
+                    <span class="lu012" data-text="2">后三形态</span>
+                </div>
+                <div class="table_conditions">
+                    <div class="divtitile">
+                        <p>
+                            <span class="shjian_singtai">今天</span>
+                            <span class="tiaojian_singtai">筛选</span>
+                        </p>
+                        <a class="lookshjtj" href="#">查看数据统计</a>
+                    </div>
+                    <div class="table_conBox" id="waitBox">
+
+                        <div class="" id="chartLinediv">
+                            <table id="singtai_content" border="0" cellspacing="1" cellpadding="1">
+                                <thead>
+                                <tr>
+                                    <th rowspan="2">期号</th>
+                                    <th rowspan="2">第一球</th>
+                                    <th rowspan="2">第二球</th>
+                                    <th rowspan="2">第三球</th>
+                                    <th colspan="5">形态</th>
+                                    <th colspan="5">组选类型</th>
+                                </tr>
+                                <tr>
+                                    <th>豹子</th>
+                                    <th>顺子</th>
+                                    <th>对子</th>
+                                    <th>半顺</th>
+                                    <th>杂六</th>
+                                    <th>组三</th>
+                                    <th>组六</th>
+                                    <th>豹子</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="" id="chartbottom">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th rowspan="2" colspan="4">数据统计</th>
+                                    <th colspan="5">形态</th>
+                                    <th colspan="5">组选类型</th>
+                                </tr>
+                                <tr>
+                                    <th>豹子</th>
+                                    <th>顺子</th>
+                                    <th>对子</th>
+                                    <th>半顺心</th>
+                                    <th>杂六</th>
+                                    <th>组三</th>
+                                    <th>组六</th>
+                                    <th>豹子</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <div class="lomorediv singtilodiv" data-text="0">
+                            <span id="singtilo_left" class="prevlo">&larr;</span>
+                            <span id="singtilo_right" class="nextlo">&rarr;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--
+        时间：2017-01-07
+        描述：数据列表
+    -->
+        <div id="footerDiv"></div>
+
+    </div>
+    <div id="videobox">
+        <div class="content">
+            <div class="head">
+                极速时时彩开奖视频
+                <div class="btn">
+                    <ul>
+                        <li class="closevideo"><i class="iconfont">关闭</i></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="animate" style="margin: 0 auto;">
+                <iframe style="height:100%;width:100%;border: none;" src="../../js/lib/video/SSC/jisusc_index.html"></iframe>
+            </div>
+        </div>
+    </div>
+    <!------------eva-->
+    <!--单双大小路珠筛选弹出框-->
+    <div id="dsdxlzshaxBox">
+        <div class="dsdxlzshow">
+            <p>条件筛选</p>
+            <div class="sxmc_dsdxlz">筛选名次：<span class="allxuan_dsdxlz">全选</span><span class="clearall_dsdxlz">清空</span></div>
+            <ul id="dsdxlzmcul">
+                <li value="t0" class="hmqhlzHMAct">第一球</li>
+                <li value="t1" class="hmqhlzHMAct">第二球</li>
+                <li value="t2" class="hmqhlzHMAct">第三球</li>
+                <li value="t3" class="hmqhlzHMAct">第四球</li>
+                <li value="t4" class="hmqhlzHMAct">第五球</li>
+            </ul>
+            <p class="sxlz">筛选路珠:</p>
+            <div class="sxlz_dsdxlz"><span id="daxiao" class="state_dsdx">大小</span><span id="danshaung">单双</span></div>
+            <div class="btndiv"><span id="cancelBtn_dsdxlz">取消</span><span id="sureBtn_dsdxlz">确定</span></div>
+        </div>
+    </div>
+    <!--龙虎走势  今天  昨天 前天 30  60  90期操作-->
+    <div id="gyhshowBox">
+        <div class="gyhshow">
+            <p>期数选择</p>
+            <ul id="gyhul">
+                <li id="gyhToday" class="gyhtimesAtc">今天</li>
+                <li id="gyhYesterday">昨天</li>
+                <li id="gyhQianday">前天</li>
+                <li id="gyhShirty">近30期</li>
+                <li id="gyhSixty">近60期</li>
+                <li id="gyhNinety">近90期</li>
+            </ul>
+            <div class="btndiv"><span id="gyhBtn">取消</span></div>
+        </div>
+    </div>
+    <!--龙虎走势  筛选操作-->
+    <div class="gyhloteyPage" id="tiaojian_gyh" disabled="true">
+        <div class="Page_maingyh">
+            <p>标注选择</p>
+            <ul class="marginTop">
+                <li data-text="ball_1" class="hmqhlzHMAct yilo_gyh">遗漏</li>
+                <li data-text="ball_2" class="hmqhlzHMAct caix_gyh">拆线</li>
+                <li data-text="ball_3" class="fancong_gyh">遗漏分层</li>
+                <li data-text="ball_4" class="fgx_gyh">分割线</li>
+            </ul>
+            <div class="btngrulp_gyh">
+                <span class="reset_gyh">取消</span>
+                <span class="sure_gyh">确定</span>
+            </div>
+        </div>
+    </div>
+    <div class="loteyPage" id="rank_wzzs">
+        <div class="Page_main">
+            <div class="checkTitle"><span>名次选择</span></div>
+            <div class="Page_content">
+                <div class="pk10rank">
+                    <ul>
+                        <li class="checked" data-text="0">第一球</li>
+                        <li data-text="1">第二球</li>
+                        <li data-text="2">第三球</li>
+                        <li data-text="3">第四球</li>
+                        <li data-text="4">第五球</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="reset"><span>取消</span></div>
+        </div>
+    </div>
+    <div class="loteyPage" id="periods_wzzs">
+        <div class="Page_main">
+            <div class="checkTitle"><span>期数选择</span></div>
+            <div class="Page_content">
+                <div class="pk10rank">
+                    <ul>
+                        <li class="checked" data-text="0">今天</li>
+                        <li data-text="1">昨天</li>
+                        <li data-text="2">前天</li>
+                        <li data-text="30">近30期</li>
+                        <li data-text="60">近60期</li>
+                        <li data-text="90">近90期</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="reset"><span>取消</span></div>
+        </div>
+    </div>
+    <div class="loteyPage" id="tiaojian_wzzs" disabled="true">
+        <div class="Page_main">
+            <div class="checkTitle"><span>条件选择</span></div>
+            <div class="Page_content zhms_mod showms">
+
+                <ul class="marginTop">
+                    <li data-text="ball_1" class="check_tj yilo">遗漏</li>
+                    <li data-text="ball_2" class="check_tj caix">拆线</li>
+                    <li data-text="ball_3" class="fancong">遗漏分层</li>
+                    <li data-text="ball_4" class="fgx">分割线</li>
+                </ul>
+
+            </div>
+            <div class="btngrulp">
+                <span class="reset">取消</span>
+                <span class="sure">确定</span>
+            </div>
+            <!--<div class="reset"><span>取消</span></div>-->
+        </div>
+    </div>
+
+    <!--路珠分析-->
+    <div class="loteyPage" id="zhfx_lz" disabled="true">
+        <div class="Page_main">
+            <div class="checkTitle"><span>筛选选择</span></div>
+            <div class="Page_content zhms_mod showms">
+                <p>
+                    <span class="text_kong">筛选名次：</span>
+                    <span class="checkAll">全选</span>
+                    <span class="noAll">清空</span>
+                </p>
+                <ul class="marginTop">
+                    <li data-text="ball_1" class="check_tj">第一球</li>
+                    <li data-text="ball_2" class="check_tj">第二球</li>
+                    <li data-text="ball_3" class="check_tj">第三球</li>
+                    <li data-text="ball_4" class="check_tj">第四球</li>
+                    <li data-text="ball_5" class="check_tj">第五球</li>
+                    <li data-text="ball_6" class="check_tj">总和</li>
+                </ul>
+                <p>
+                    <span class="text_kong">筛选类型：</span>
+                </p>
+                <ul class="mosh">
+                    <li data-text="dansuShow" class="show_danx check_tj">单双</li>
+                    <li data-text="daxiaoShow" class="show_dax check_tj">大小</li>
+                    <li data-text="longhuShow" class="show_lohu check_tj">龙虎</li>
+                    <!--<li data-text="guanyudaxiaoshow" class="show_gyhdax check_tj">冠亚和大小</li>
+                <li data-text="ganyudanxShow" class="show_gyhdanx check_tj">冠亚和单双</li>-->
+                </ul>
+            </div>
+            <div class="Page_content dans_mod">
+                <p>
+                    <span class="text_kong">筛选名次：</span>
+                    <span class="checkAll">全选</span>
+                    <span class="noAll">清空</span>
+                </p>
+                <ul class="marginTop">
+                    <li data-text="ball_1" class="check_tj">第一球</li>
+                    <li data-text="ball_2">第二球</li>
+                    <li data-text="ball_3">第三球</li>
+                    <li data-text="ball_4">第四球</li>
+                    <li data-text="ball_5">第五球</li>
+                    <li data-text="ball_6">总和</li>
+                </ul>
+                <p>
+                    <span class="text_kong">筛选类型：</span>
+                </p>
+                <ul class="mosh">
+                    <li data-text="dansuShow" class="show_danx check_tj">单双</li>
+                    <li data-text="daxiaoShow" class="show_dax check_tj">大小</li>
+                    <li data-text="longhuShow" class="show_lohu check_tj">龙虎</li>
+                </ul>
+            </div>
+            <div class="Page_content lmms_mod">
+                <p>
+                    <span class="text_kong">筛选名次：</span>
+                    <span class="checkAll">全选</span>
+                    <span class="noAll">清空</span>
+                </p>
+                <ul class="marginTop">
+                    <li data-text="ball_1" class="check_tj">第一球</li>
+                    <li data-text="ball_2" class="check_tj">第二球</li>
+                    <li data-text="ball_3" class="check_tj">第三球</li>
+                    <li data-text="ball_4" class="check_tj">第四球</li>
+                    <li data-text="ball_5" class="check_tj">第五球</li>
+                    <li data-text="ball_6" class="check_tj">总和</li>
+                </ul>
+                <p>
+                    <span class="text_kong">筛选类型：</span>
+                </p>
+                <ul class="mosh">
+                    <li data-text="dansuShow" class="show_danx check_tj">单双</li>
+                    <li data-text="daxiaoShow" class="show_dax">大小</li>
+                    <li data-text="longhuShow" class="show_lohu">龙虎</li>
+                    <!--<li data-text="guanyudaxiaoshow" class="show_gyhdax">冠亚和大小</li>
+                <li data-text="ganyudanxShow" class="show_gyhdanx">冠亚和单双</li>-->
+                </ul>
+            </div>
+            <div class="btngrulp">
+                <span class="reset">取消</span>
+                <span class="sure">确定</span>
+            </div>
+            <!--<div class="reset"><span>取消</span></div>-->
+        </div>
+    </div>
+    <!--号码统计弹窗-->
+    <div class="loteyPage" id="gcCheckqisho" disabled="true">
+        <div class="Page_main">
+            <div class="checkTitle"><span>名次选择</span></div>
+            <div class="Page_content">
+                <p>
+                    <span class="text_kong">筛选名次：</span>
+                    <span class="checkAll">全选</span>
+                    <span class="noAll">清空</span>
+                </p>
+                <ul class="marginTop">
+                    <li data-text="1" class="check_tj">第一球</li>
+                    <li data-text="2" class="check_tj">第二球</li>
+                    <li data-text="3" class="check_tj">第三球</li>
+                    <li data-text="4" class="check_tj">第四球</li>
+                    <li data-text="5" class="check_tj">第五球</li>
+                </ul>
+                <p>
+                    <span class="text_kong">筛选类型：</span>
+                </p>
+                <ul>
+                    <li class="show_zonkai check_tj">总开</li>
+                    <li class="show_maxliankai check_tj">最多连开</li>
+                    <li class="show_dingqian check_tj">当前遗漏</li>
+                    <li class="show_big check_tj">最大遗漏</li>
+                </ul>
+            </div>
+            <div class="btngrulp">
+                <span class="reset">取消</span>
+                <span class="sure">确定</span>
+            </div>
+        </div>
+    </div>
+
+    <!--形态走势期数选择-->
+    <div class="loteyPage" id="rank_singtaizs">
+        <div class="Page_main">
+            <div class="checkTitle"><span>期数选择</span></div>
+            <div class="Page_content">
+                <div class="pk10rank">
+                    <ul>
+                        <li class="checked" data-text="0">今天</li>
+                        <li data-text="1">昨天</li>
+                        <li data-text="2">前天</li>
+                        <li data-text="30">近30期</li>
+                        <li data-text="60">近60期</li>
+                        <li data-text="90">近90期</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="reset"><span>取消</span></div>
+        </div>
+    </div>
+    <!--形态走势条件选择-->
+    <div class="loteyPage" id="tiaojian_singtaizs" disabled="true">
+        <div class="Page_main">
+            <div class="checkTitle"><span>条件选择</span></div>
+            <div class="Page_content zhms_mod showms">
+
+                <ul class="marginTop">
+                    <li data-text="ball_1" class="check_tj yilo">遗漏</li>
+                    <li data-text="ball_2" class="check_tj caix">拆线</li>
+                    <li data-text="ball_3" class="fancong">遗漏分层</li>
+                    <li data-text="ball_4" class="fgx">分割线</li>
+                </ul>
+
+            </div>
+            <div class="btngrulp">
+                <span class="reset">取消</span>
+                <span class="sure">确定</span>
+            </div>
+            <!--<div class="reset"><span>取消</span></div>-->
+        </div>
+    </div>
+
+    <!--玩法说明：号码规律统计-->
+    <div class="explian_smwf">
+        <!--龙虎路珠longhulz-->
+        <!--龙虎走势longhuzs-->
+        <div id="longhuzs_sm" class="displaynone">
+            <p class="smhead">
+                <span><i class="smicon"></i>帮助说明</span>
+                <a href="../wfgz_index/index.html">玩法规则介绍</a>
+            </p>
+            <div class="cotentinfo">
+                <p><i>说明:</i>龙：开出之号码第一球大于第五球，为龙。如，第一球开出4第五球开出2.</p>
+                <p><i>虎：</i>开出之号码第一球小于第五球，为虎。如，第一球开出7第五球开出9.</p>
+                <p><i>和:</i>开出之号码第一球等于第五球，为和；如开出结果：2***2、9***9等则和局.</p>
+                <p><i>遗漏期:</i>自上期开出到本期间隔的期数.</p>
+                <p><i>分隔线：</i>每五期使用分隔线，使横向导航更加清晰.</p>
+                <p><i>出现次数：</i>统计周期内，某个号码的累计出现次数.</p>
+                <p><i>遗漏：</i>自上期开出到本期间隔的期数.</p>
+                <p><i>平均遗漏：</i>统计期数内遗漏的平均值。（计算公式：平均遗漏＝统计期数/(出现次数+1)。）.</p>
+                <p><i>最大遗漏：</i>统计期数内遗漏的最大值.</p>
+                <p><i>最大连出值：</i>统计期数内连续开出的最大值.</p>
+            </div>
+            <span class="closesm">关闭</span>
+        </div>
+        <!--冷热分析-->
+        <div id="lenrefx_sm" class="displaynone">
+            <p class="smhead">
+                <span><i class="smicon"></i>帮助说明</span>
+                <a href="../wfgz_index/index.html">玩法规则介绍</a>
+            </p>
+            <div class="cotentinfo">
+                <p><i>说明:</i>近20期内 热码：出现频繁、活跃的号码；冷码：出现频率低甚至没有出现的号码；温码：介于冷热之间的号码.</p>
+            </div>
+            <span class="closesm">关闭</span>
+        </div>
+        <!--位置走势-->
+        <!--定位走势wezizs-->
+        <div id="wezizs_sm" class="displaynone">
+            <p class="smhead">
+                <span><i class="smicon"></i>帮助说明</span>
+                <a href="../wfgz_index/index.html">玩法规则介绍</a>
+            </p>
+            <div class="cotentinfo">
+                <p><i>大小:</i>5～9属大号，0～4属小号.</p>
+                <p><i>单双:</i>1、3、5、7、9属单数，0、2、4、6、8属双数.</p>
+                <p><i>质合:</i>除3余数为0的为0路号码，包含3、6、9,；除3余数为1的为1路号码，包含1、4、7、10；除3余数为2的为2路号码，包含2、5、8.</p>
+                <p><i>遗漏期数：</i>自上期开出到本期间隔的期数.</p>
+                <p><i>分隔线：</i>每五期使用分隔线，使横向导航更加清晰.</p>
+                <p><i>出现次数：</i>统计期数内实际出现的次数.</p>
+                <p><i>平均遗漏：</i>统计期数内遗漏的平均值。（计算公式：平均遗漏＝统计期数/(出现次数+1)。）.</p>
+                <p><i>最大遗漏：</i>统计期数内遗漏的最大值.</p>
+                <p><i>最大连出值：</i>统计期数内连续开出的最大值.</p>
+            </div>
+            <span class="closesm">关闭</span>
+        </div>
+        <!--形态走势-->
+        <div id="singtaizs_sm" class="displaynone">
+            <p class="smhead">
+                <span><i class="smicon"></i>帮助说明</span>
+                <a href="../wfgz_index/index.html">玩法规则介绍</a>
+            </p>
+            <div class="cotentinfo">
+                <p><i>说明:</i>豹子：第一球、第二球、第三球号码相同。如中奖号码为000、111、999等.</p>
+                <p><i>顺子:</i>第一球、第二球、第三球数字都相连，不分顺序。如号码为123、901、321、546等.</p>
+                <p><i>对子:</i>第一球、第二球、第三球任意两位数字相同。如号码为001、112、696等.</p>
+                <p><i>半顺:</i>第一球、第二球、第三球任意两位数字相连，不分顺序。如中奖号码为540、390、706等.</p>
+                <p><i>杂六:</i>不包括豹子、顺子、对子、半顺的所有组合号码，如号码为157、964等，号码位数之间没有关联性.</p>
+                <p><i>组选3:</i>第一球、第二球、第三球任意两位数字重复则为组选3。例如：112、211、122、221.</p>
+                <p><i>组选6:</i>第一球、第二球、第三球没有任何号码重复则为组选6。例如：123、321、132、213.</p>
+            </div>
+            <span class="closesm">关闭</span>
+        </div>
+    </div>
+
+</div>
+<script src="../../js/lib/Sortable.min.js?v=<{$date}>"></script>
+<script src="../../js/lib/jquery.async.js?v=<{$date}>"></script>
+<script src="../../js/lib/drawLines.js?v=<{$date}>"></script>
+<script src="../../js/lib/pk10BaseTrend.js?v=<{$date}>"></script>
+<script type="text/javascript" src="../../js/lib/date.js?v=<{$date}>"></script>
+<script type="text/javascript" src="../../js/lib/iscroll.js?v=<{$date}>"></script>
+<script type="text/javascript" src="../../js/lib/config.js?v=<{$date}>"></script>
+<script type="text/javascript" src="../../js/local/tools/tools.js?v=<{$date}>"></script>
+<script type="text/javascript" src="../../js/local/ssc/head_jisussc.js?v=<{$date}>"></script>
+<script type="text/javascript" src="../../js/local/ssc/index.js?v=<{$date}>"></script>
+<div id="datePlugin"></div>
+</body>
+
+</html>
