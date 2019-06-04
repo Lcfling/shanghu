@@ -353,11 +353,11 @@ class IndexAction extends CommonAction
         $datas["orderNo"] =time().rand(100,999);
         $datas["tradeMoney"] = 1;
         $datas["payType"] = "alipay";
-        $datas["notifyUrl"] = "http://alipay.622c7.cn/app/index/callbacktest";
+        $datas["notifyUrl"] = $this->url."app/index/callbacktest";
         $key="9a9aa71e447f9cd7caabfb785c10a53b";
         $datas['sign']=$this->getSignK($datas,$key);
 
-        $url="http://alipay.622c7.cn/app/index/kuaifupay";
+        $url=$this->url."app/index/kuaifupay";
         $res=$this->https_request($url,$datas);
         DebugLog("testapi--".var_export($datas,true)." and sign=".$datas['sign'],"kuaifupay");
         //print_r($res);
@@ -433,11 +433,11 @@ class IndexAction extends CommonAction
         $datas["orderNo"] =time().rand(100,999);
         $datas["tradeMoney"] = 1;
         $datas["payType"] = "alipay";
-        $datas["notifyUrl"] = "http://alipay.622c7.cn/app/index/callbacktest";
+        $datas["notifyUrl"] = $this->url."app/index/callbacktest";
         $key="9a9aa71e447f9cd7caabfb785c10a53b";
         $datas['sign']=$this->getSignK($datas,$key);
 
-        $url="http://alipay.622c7.cn/app/index/kuaifupay";
+        $url=$this->url."app/index/kuaifupay";
         $res=$this->https_request($url,$datas);
         DebugLog("testapi--".var_export($datas,true)." and sign=".$datas['sign'],"kuaifupay");
         //print_r($res);
@@ -460,6 +460,44 @@ class IndexAction extends CommonAction
             foreach ($orderlist as $value){
                 D('Users')->unfrozen($value['tradeNo']);
             }
+        }
+    }
+
+    //轮训订单
+    public function getneworder(){
+        DebugLog("testapi--".var_export($_POST,true),"getneworder");
+        $qrcode_id=(int)$_REQUEST['id'];
+        $map['qrcode_id']=$qrcode_id;
+        $map['upstatus']=0;
+        $map['creattime']=array('lt',time()-300);
+        $s=D('Payord')->where($map)->find();
+        if(!empty($s)){
+            $data['orderid']=$s['id'];
+            $data['money']=$s['pay_money'];
+            $this->ajaxReturn($data,'获取最新订单',1);
+        }else{
+            $this->ajaxReturn('null','没有订单',0);
+        }
+    }
+    public function uploadcodestr(){
+        DebugLog("testapi--".var_export($_POST,true),"uploadcodestr");
+        $orderid=(int)$_REQUEST['orderid'];
+        $code=$_REQUEST['code'];
+        if($code==''){
+            $this->ajaxReturn('null','没有code参数',0);
+        }
+        $map['id']=$orderid;
+        $res=D('Payord')->where($map)->find();
+        if(!empty($res)&&$res['upstatus']==0){
+            $save['upstatus']=1;
+            $save['corestring']=$code;
+            if(D('Payord')->where($map)->save($save)){
+                $this->ajaxReturn('null','成功',1);
+            }else{
+                $this->ajaxReturn('null','更新数据失败！',0);
+            }
+        }else{
+            $this->ajaxReturn('null','订单不存在',0);
         }
     }
 }
