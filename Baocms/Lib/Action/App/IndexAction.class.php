@@ -116,6 +116,86 @@ class IndexAction extends CommonAction
         }
     }
 
+
+    public function youpay(){
+
+        $datas["brandId"] = $_POST['brandId'];
+        $datas["orderNo"] =$_POST['orderNo'];
+        $datas["tradeMoney"] = ((int)($_POST['tradeMoney']));
+        $datas["payType"] = "alipay";
+        $datas["notifyUrl"] = $_POST['notifyUrl'];
+
+        $sign=$_POST['sign'];
+        DebugLog(var_export($datas,true)." and sign=".$sign,"kuaifupay");
+
+        //$extraParams=$_POST['extraParams']; //子商户在我们平台的记录  不参与签名
+        if(empty($datas["brandId"])){
+            $this->ajaxReturn('error40002','商户号不能为空!',0);
+        }
+        $users=D('Admin');
+        $where['brandid']=$datas["brandId"];
+        $line_rate=$users->where($where)->find();
+        if(empty($line_rate)){
+            $this->ajaxReturn('error40003','商户号不存在!',0);
+        }
+        if($datas["orderNo"]==""||empty($datas["orderNo"])){
+            $this->ajaxReturn('error40001','订单号不能是空!',0);
+        }
+        if($datas["tradeMoney"]<$line_rate['minpay']){
+            $this->ajaxReturn('error40004','金额不合法!',0);
+        }
+        $key=$line_rate['merId'];
+        if( $sign!=$this->getSignK($datas,$key)){
+            $this->ajaxReturn('error','签名错误!',0);
+        }
+        //参数过滤完毕 开始生成订单
+
+        //获取一个支付码
+
+        //平台订单
+        $paltform_oderid=time().rand(10000,99999);
+
+        $payData=$this->getpaydata($datas,$line_rate,0);
+
+        if(!$payData){
+            $this->ajaxReturn('error','可用码不足!',0);
+        }
+
+        //10分钟内不领取重复订单
+
+
+        //组装数据
+        $orderData["orderNo"]=$datas["orderNo"];//商家订单
+        $orderData["tradeNo"]=$paltform_oderid;//平台订单
+        $orderData["pay_money"]=$payData['payMoney'];//实际支付金额
+        $orderData["aliaccount"]=$payData['Qrcode']['qrcode'];
+        $orderData["qrcode_id"]=$payData['qrcode_id'];
+        $orderData["qrcodeuid"]=$payData['Qrcode']['user_id'];
+        $orderData["payAmt"]=$payData['payAmt'];
+        $orderData["frozen"]=1;
+        $orderData["rate"]=$line_rate['rate'];
+        $orderData["rate_money"]=$payData['rate_money'];
+        $orderData["money"]=$datas["tradeMoney"]*100;
+        $orderData["brandid"]=$datas["brandId"];
+        $orderData["notifyUrl"]=$datas["notifyUrl"];
+        $orderData["sign"]=$sign;
+        $orderData["creattime"]=time();
+        $orderData["paidTime"]=0;
+        $orderData["sta"]=0;
+
+        //开始入库
+        DebugLog(var_export($orderData,true),"orderData");
+
+        if(D("Payord")->add($orderData)){
+            D('Users')->frozen($paltform_oderid,$orderData);
+            $retrunUrl=getSiteUrl()."/pchome/index/showinfos?order=".$paltform_oderid;
+            $this->ajaxReturn($retrunUrl,'success',1);
+        }else{
+            DebugLog("faild message:".D("Payord")->getLastSql(),"orderData");
+            $this->ajaxReturn('error','订单创建失败!',0);
+        }
+    }
+
     private function getpaydata($datas,$line_rate,$i){
         $i++;
         $Qrcode=D('Qrcode')->getOneQrcode();
@@ -358,6 +438,28 @@ class IndexAction extends CommonAction
         $datas['sign']=$this->getSignK($datas,$key);
 
         $url=$this->url."app/index/kuaifupay";
+        $res=$this->https_request($url,$datas);
+        DebugLog("testapi--".var_export($datas,true)." and sign=".$datas['sign'],"kuaifupay");
+        //print_r($res);
+        $result=json_decode($res,true);
+        //print_r($result);
+        if($result['status']==1){
+            header("Location:".$result['data']);
+        }else{
+            print_r($result);
+        }
+
+    }
+    public function testapiyou(){
+        $datas["brandId"] = 30006;
+        $datas["orderNo"] =time().rand(100,999);
+        $datas["tradeMoney"] = 1;
+        $datas["payType"] = "alipay";
+        $datas["notifyUrl"] = $this->url."app/index/callbacktest";
+        $key="9a9aa71e447f9cd7caabfb785c10a53b";
+        $datas['sign']=$this->getSignK($datas,$key);
+
+        $url=$this->url."app/index/youpay";
         $res=$this->https_request($url,$datas);
         DebugLog("testapi--".var_export($datas,true)." and sign=".$datas['sign'],"kuaifupay");
         //print_r($res);

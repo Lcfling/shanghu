@@ -3,7 +3,7 @@
 
 class QrcodeAction extends CommonAction
 {
-    private $create_fields = array('user_id','mobile', 'qrcode', 'type','remark','creatime');
+    private $create_fields = array('user_id','mobile', 'qrcode', 'type','remark','filepath','creatime');
     //private $edit_fields = array('password', 'role_id', 'mobile','city_id','rate','minpay');
     public function index(){
         $qrcode = D('Qrcode');
@@ -49,10 +49,12 @@ class QrcodeAction extends CommonAction
         if (!isMobile($data['mobile'])) {
             $this->baoError('手机格式不正确');
         }
-        if (empty($data['qrcode'])) {
-            $this->baoError('请填写支付宝用户id');
+        if (empty($data['filepath'])) {
+            $this->baoError('请上传缩略图');
         }
-
+        if (!isImage($data['filepath'])) {
+            $this->baoError('缩略图格式不正确');
+        }
         $data['creatime'] = time();
         return $data;
     }
