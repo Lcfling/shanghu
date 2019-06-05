@@ -8,9 +8,9 @@ class QrcodeModel extends CommonModel {
     protected $tableName = 'qrcode';
 
     //是否在队列中 Qrcode_Queue
-    public function isQrcodeIn($id){
+    public function isQrcodeIn($id,$type){
 
-        $queue=Cac()->lRange('Qrcode_Queue',0,-1);
+        $queue=Cac()->lRange('Qrcode_Queue_'.$type,0,-1);
         if(in_array($id,$queue)){
             return true;
         }else{
