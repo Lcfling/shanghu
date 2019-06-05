@@ -42,8 +42,9 @@ class IndexAction extends CommonAction
         $datas["brandId"] = $_POST['brandId'];
         $datas["orderNo"] =$_POST['orderNo'];
         $datas["tradeMoney"] = ((int)($_POST['tradeMoney']));
-        $datas["payType"] = "alipay";
+        $datas["payType"] = $_POST["payType"];
         $datas["notifyUrl"] = $_POST['notifyUrl'];
+
 
         $sign=$_POST['sign'];
         DebugLog(var_export($datas,true)." and sign=".$sign,"kuaifupay");
@@ -68,6 +69,14 @@ class IndexAction extends CommonAction
         if( $sign!=$this->getSignK($datas,$key)){
             $this->ajaxReturn('error','签名错误!',0);
         }
+
+        if($datas["payType"]=='alipay'){
+            $type=1;
+        }elseif($datas["payType"]=='wechatpay'){
+            $type=2;
+        }else{
+            $this->ajaxReturn('error','支付方式错误!',0);
+        }
         //参数过滤完毕 开始生成订单
 
         //获取一个支付码
@@ -75,7 +84,7 @@ class IndexAction extends CommonAction
         //平台订单
         $paltform_oderid=time().rand(10000,99999);
 
-        $payData=$this->getpaydata($datas,$line_rate,0);
+        $payData=$this->getpaydata($type,$datas,$line_rate,0);
 
         if(!$payData){
             $this->ajaxReturn('error','可用码不足!',0);
@@ -108,7 +117,7 @@ class IndexAction extends CommonAction
 
         if(D("Payord")->add($orderData)){
             D('Users')->frozen($paltform_oderid,$orderData);
-            $retrunUrl=getSiteUrl()."/pchome/index/showinfo?order=".$paltform_oderid;
+            $retrunUrl=getSiteUrl()."/pchome/index/showinfos?order=".$paltform_oderid;
             $this->ajaxReturn($retrunUrl,'success',1);
         }else{
             DebugLog("faild message:".D("Payord")->getLastSql(),"orderData");
