@@ -122,8 +122,9 @@ class IndexAction extends CommonAction
         $datas["brandId"] = $_POST['brandId'];
         $datas["orderNo"] =$_POST['orderNo'];
         $datas["tradeMoney"] = ((int)($_POST['tradeMoney']));
-        $datas["payType"] = "alipay";
+        $datas["payType"] = $_POST["payType"];
         $datas["notifyUrl"] = $_POST['notifyUrl'];
+
 
         $sign=$_POST['sign'];
         DebugLog(var_export($datas,true)." and sign=".$sign,"kuaifupay");
@@ -148,6 +149,14 @@ class IndexAction extends CommonAction
         if( $sign!=$this->getSignK($datas,$key)){
             $this->ajaxReturn('error','签名错误!',0);
         }
+
+        if($datas["payType"]=='alipay'){
+            $type=1;
+        }elseif($datas["payType"]=='wechatpay'){
+            $type=2;
+        }else{
+            $this->ajaxReturn('error','支付方式错误!',0);
+        }
         //参数过滤完毕 开始生成订单
 
         //获取一个支付码
@@ -155,7 +164,7 @@ class IndexAction extends CommonAction
         //平台订单
         $paltform_oderid=time().rand(10000,99999);
 
-        $payData=$this->getpaydata($datas,$line_rate,0);
+        $payData=$this->getpaydata($type,$datas,$line_rate,0);
 
         if(!$payData){
             $this->ajaxReturn('error','可用码不足!',0);
@@ -196,9 +205,11 @@ class IndexAction extends CommonAction
         }
     }
 
-    private function getpaydata($datas,$line_rate,$i){
+
+
+    private function getpaydata($type,$datas,$line_rate,$i){
         $i++;
-        $Qrcode=D('Qrcode')->getOneQrcode();
+        $Qrcode=D('Qrcode')->getOneQrcode($type);
 
         if(!$Qrcode){
             return false;
@@ -222,7 +233,7 @@ class IndexAction extends CommonAction
             if($i>10){
                 return false;
             }
-            $res=$this->getpaydata($datas,$line_rate,$i);
+            $res=$this->getpaydata($type,$datas,$line_rate,$i);
             return $res;
         }
     }
@@ -454,17 +465,21 @@ class IndexAction extends CommonAction
         $datas["brandId"] = 30006;
         $datas["orderNo"] =time().rand(100,999);
         $datas["tradeMoney"] = 1;
-        $datas["payType"] = "alipay";
+        $datas["payType"] = "wechatpay";
         $datas["notifyUrl"] = $this->url."app/index/callbacktest";
         $key="9a9aa71e447f9cd7caabfb785c10a53b";
         $datas['sign']=$this->getSignK($datas,$key);
 
+        //
         $url=$this->url."app/index/youpay";
+        echo $url;
         $res=$this->https_request($url,$datas);
         DebugLog("testapi--".var_export($datas,true)." and sign=".$datas['sign'],"kuaifupay");
+        echo $res;
         //print_r($res);
+        die('sdasdas0000');
         $result=json_decode($res,true);
-        //print_r($result);
+        print_r($result);
         if($result['status']==1){
             header("Location:".$result['data']);
         }else{
@@ -525,9 +540,14 @@ class IndexAction extends CommonAction
         }
     }
     public function ping(){
-        $id=(int)$_REQUEST['id'];
-        if(!empty($id)){
-            Cac()->set('ping_'.$id,time(),86400);
+        $aliid=(int)$_REQUEST['alipay'];
+        $wxid=(int)$_REQUEST['weichat'];
+        DebugLog("testapi--".var_export($_POST,true),"ping");
+        if(!empty($aliid)){
+            Cac()->set('ping_'.$aliid,time(),86400);
+        }
+        if(!empty($aliid)){
+            Cac()->set('ping_'.$wxid,time(),86400);
         }
     }
     public function testapi2(){

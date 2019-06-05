@@ -45,16 +45,16 @@ class QrcodeModel extends CommonModel {
             DebugLog($id.'-已经在队列中','RpushQueue');
             return false;
         }
-        Cac()->rPush('Qrcode_Queue',$id);
+        Cac()->rPush('Qrcode_Queue_'.$qrcode['type'],$id);
         return true;
     }
-    public function getQueueLen(){
-        return Cac()->lLen('Qrcode_Queue');
+    public function getQueueLen($type){
+        return Cac()->lLen('Qrcode_Queue_'.$type);
     }
     //队列中获取一个二维码
-    public function getOneQrcode(){
-        for ($i=0;$i<$this->getQueueLen();$i++){
-            $id=Cac()->lPop('Qrcode_Queue');
+    public function getOneQrcode($type){
+        for ($i=0;$i<$this->getQueueLen($type);$i++){
+            $id=Cac()->lPop('Qrcode_Queue_'.$type);
             $Qrcode=$this->where('id='.$id)->find();
             if(empty($Qrcode)){
                 DebugLog($id.'-不存在','getOneqrcode');
