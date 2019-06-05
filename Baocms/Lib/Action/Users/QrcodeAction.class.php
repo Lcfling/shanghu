@@ -17,7 +17,7 @@ class QrcodeAction extends CommonAction
         foreach ($list as $k => &$val) {
 
             $val['connect']=D('Qrcode')->isQrcodeOnline($val['id']);
-            $val['queue']=D('Qrcode')->isQrcodeIn($val['id']);
+            $val['queue']=D('Qrcode')->isQrcodeIn($val['id'],$val['type']);
             $val['creatime']=date('Y-m-d h:i:s',$val['creatime']);
         }
         $this->assign('list', $list); // 赋值数据集

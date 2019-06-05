@@ -73,6 +73,7 @@ class IndexAction extends CommonAction {
         $res["order"]=$orderInfo["tradeNo"];
         $res["money"]=$orderInfo["money"]/100;
         $res["timeS"]=time()-$orderInfo["creattime"];
+        $res["pay_money"]=$orderInfo["pay_money"]/100;
         //$url=urlencode(getSiteUrl()."/pchome/index/jsb?order=".$orderNo);
         $map['id']=$orderInfo['qrcode_id'];
         $qrcode=D("Qrcode")->where($map)->find();
