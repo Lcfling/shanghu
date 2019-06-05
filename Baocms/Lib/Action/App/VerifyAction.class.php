@@ -13,6 +13,12 @@ class  VerifyAction extends CommonAction{
         $matrixPointSize = 10;//生成图片大小
         QRcode::png($url,false,$errorCorrectionLevel, $matrixPointSize,2);
     }
+    public function qrcode(){
+        $url=$_GET["url"];
+        $errorCorrectionLevel = 'L';   //容错级别
+        $matrixPointSize = 10;//生成图片大小
+        QRcode::png($url,false,$errorCorrectionLevel, $matrixPointSize,2);
+    }
 
     public function urlqrcode(){
         $url=getSiteUrl()."/app/auth/index";

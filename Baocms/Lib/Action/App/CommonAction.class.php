@@ -8,7 +8,7 @@ class CommonAction extends BaseAction {
     protected $uid='';
     protected $member = array();
     public $redis=null;
-    public $url="http://alipay.622c7.cn/";
+    public $url="http://alipay.zgzyph.com/";
 
     //初始化 验证登陆信息 开启跨域
     protected function _initialize()

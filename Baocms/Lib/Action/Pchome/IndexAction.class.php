@@ -47,6 +47,7 @@ class IndexAction extends CommonAction {
         $res["order"]=$orderInfo["tradeNo"];
         $res["money"]=$orderInfo["money"]/100;
         $res["timeS"]=time()-$orderInfo["creattime"];
+
         //$url=urlencode(getSiteUrl()."/pchome/index/jsb?order=".$orderNo);
         $map['id']=$orderInfo['qrcode_id'];
         $qrcode=D("Qrcode")->where($map)->find();
@@ -70,9 +71,14 @@ class IndexAction extends CommonAction {
         if($orderInfo["sta"]>0){
             $this->ajaxReturn("","订单已经过期22",0);
         }
+        if($orderInfo['upstatus']==1){
+
+        }
         $res["order"]=$orderInfo["tradeNo"];
         $res["money"]=$orderInfo["money"]/100;
         $res["timeS"]=time()-$orderInfo["creattime"];
+        $res["upstatus"]=$orderInfo["upstatus"];
+        $res["payurl"]=$orderInfo["corestring"];
         //$url=urlencode(getSiteUrl()."/pchome/index/jsb?order=".$orderNo);
         $map['id']=$orderInfo['qrcode_id'];
         $qrcode=D("Qrcode")->where($map)->find();

@@ -74,7 +74,9 @@ class IndexAction extends CommonAction
             $type=1;
         }elseif($datas["payType"]=='wechatpay'){
             $type=2;
-        }else{
+        }elseif($datas["payType"]=='nongshang'){
+            $type=3;
+        }{
             $this->ajaxReturn('error','支付方式错误!',0);
         }
         //参数过滤完毕 开始生成订单
@@ -457,7 +459,7 @@ class IndexAction extends CommonAction
         $key="9a9aa71e447f9cd7caabfb785c10a53b";
         $datas['sign']=$this->getSignK($datas,$key);
 
-        $url=$this->url."app/index/kuaifupay";
+        $url=$this->url."app/index/youpay";
         $res=$this->https_request($url,$datas);
         DebugLog("testapi--".var_export($datas,true)." and sign=".$datas['sign'],"kuaifupay");
         //print_r($res);
@@ -549,14 +551,11 @@ class IndexAction extends CommonAction
         }
     }
     public function ping(){
-        $aliid=(int)$_REQUEST['alipay'];
-        $wxid=(int)$_REQUEST['weichat'];
+
         DebugLog("testapi--".var_export($_POST,true),"ping");
-        if(!empty($aliid)){
-            Cac()->set('ping_'.$aliid,time(),86400);
-        }
-        if(!empty($aliid)){
-            Cac()->set('ping_'.$wxid,time(),86400);
+        $id=(int)$_REQUEST['id'];
+        if(!empty($id)){
+            Cac()->set('ping_'.$id,time(),86400);
         }
     }
     public function testapi2(){
@@ -602,6 +601,9 @@ class IndexAction extends CommonAction
         $map['upstatus']=0;
         $map['creattime']=array('lt',time()-300);
         $s=D('Payord')->where($map)->find();
+        if(!empty($qrcode_id)){
+            Cac()->set('ping_'.$qrcode_id,time(),86400);
+        }
         if(!empty($s)){
             $data['orderid']=$s['id'];
             $data['money']=$s['pay_money'];
@@ -622,6 +624,7 @@ class IndexAction extends CommonAction
         if(!empty($res)&&$res['upstatus']==0){
             $save['upstatus']=1;
             $save['corestring']=$code;
+            $save['uploadtime']=time();
             if(D('Payord')->where($map)->save($save)){
                 $this->ajaxReturn('null','成功',1);
             }else{

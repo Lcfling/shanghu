@@ -15,8 +15,10 @@
     </style>
 </head>
 <body>
+<if condition="$orderinfo.upstatus eq '1'">
 <h1>￥<{$orderinfo.money}></h1>
-<div><img src="/attachs/<{$qrcode.filepath}>"></div>
+
+<div><img src="/app/verify/qrcode?url=<{$orderinfo.payurl}>"></div>
 <p style="text-align: center">
     请在<span id="timer" style="color: red;font-size: 24px"></span>内完成支付
 </p>
@@ -27,13 +29,11 @@
     1.截图二维码
 </p>
 <p>
-    2.打开支付宝通讯录点击<span style="color: #FF0000">任意好友</span>,发送刚刚截图的二维码给好友！
-</p>
-<p>
-    3.长按刚刚发送出去的二维码，点击<span style="color: #FF0000">识别此二维码</span>，就可以付款了
+    2.支付宝或者微信识别，直接支付即可！
 </p>
 
-<img src="/litu.jpg" alt="">
+
+<!--<img src="/litu.jpg" alt="">-->
 <script>
     var time=<{$time}>;
     resetTime(time);
@@ -63,5 +63,13 @@
         timer=setInterval(countDown,1000);
     }
 </script>
+    <else/>
+    <h1 id="notice"> 订单正在生成中。。。10秒左右哦！<{$orderinfo.upstatus}></h1>
+    <script>
+        setTimeout(function () {
+            window.location.reload();
+        },3000)
+    </script>
+</if>
 </body>
 </html>
