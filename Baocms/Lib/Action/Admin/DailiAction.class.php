@@ -7,19 +7,45 @@ class DailiAction extends CommonAction
     private $edit_fields = array('rate','username','remark');
     public function cotr(){
         $User = D('Admin');
-        import('ORG.Util.Page'); // 导入分页类
+        import('ORG.Util.Pageam'); // 导入分页类
         // $map['pid']=$_SESSION['admin_id'];
-        $map['pid']= $this->admin['admin_id'];
+        $map['role_id']= 7;
+
+        if($_REQUEST['brandid']){
+            $map['brandid']= (int)$_REQUEST['brandid'];
+        }
+
 
         $count = $User->where($map)->count(); // 查询满足要求的总记录数
         $Page = new Page($count, 25); // 实例化分页类 传入总记录数和每页显示的记录数
         $show = $Page->show(); // 分页显示输出
         $list = $User->where($map)->order(array('admin_id'=>'desc'))->limit($Page->firstRow . ',' . $Page->listRows)->select();
-        foreach($list as $k=>$val){
+        foreach($list as &$val){
+            $z=D('Payord')->where('brandid='.$val['brandid'])->field('sum(money) as money')->select();
+            $val['z']=$z[0]['money']/100;
+            $s=D('Payord')->where('brandid='.$val['brandid'])->field('sum(payAmt) as money')->select();
+            $val['s']=$s[0]['money']/100;
 
 
-            $val['rate'] = $val['rate']/100;
-            $list[$k] = $val;
+
+
+            //减去 提现记录
+            $txian=D("Zhangbian")->where("brandid=".$val['brandid']." and sta<2")->field('sum(money) as money')->select();
+            $counts['txian']=$txian[0]['money'];
+            $val['txian']=$counts['txian']/100;
+            if(empty($counts['txian'])){
+                $counts['txian']=0;
+                $val['txian']=$counts['txian'];
+            }
+            //剩余真实提现
+            $val['c']=((int)$s[0]['money']-(int)$counts['txian'])/100;
+
+
+            $sucount=D('Payord')->where(array('brandid'=>$val['brandid'],'sta'=>1))->count();
+            $allcount=D('Payord')->where(array('brandid'=>$val['brandid']))->count();
+            $val['percent']=(int)($sucount/$allcount*10000)/100;
+
+
         }
 
         $this->assign('list', $list); // 赋值数据集
@@ -294,6 +320,10 @@ class DailiAction extends CommonAction
         import('ORG.Util.Pageam'); // 导入分页类
         $map = array();
         //$map['pid']=$brandid;
+        if($_REQUEST['orderNo']){
+            $map['orderNo']=(int)$_REQUEST['orderNo'];
+            $this->assign('orderNo',$map['orderNo']); // 赋值数据集
+        }
         if($_REQUEST['order_id']){
             $map['tradeNo']=(int)$_REQUEST['order_id'];
             $this->assign('order_id',$map['tradeNo']); // 赋值数据集

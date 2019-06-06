@@ -192,7 +192,7 @@ class UserAction extends CommonAction {
 
         if($_REQUEST['orderid']){
             $map['order_id']=(int)$_REQUEST['orderid'];
-            $this->assign('orderid', $map['orderid']); // 赋值数据集
+            $this->assign('orderid', $map['order_id']); // 赋值数据集
         }
         $map['creattime'] =array('between',array($todaytime,$today_end));
 
