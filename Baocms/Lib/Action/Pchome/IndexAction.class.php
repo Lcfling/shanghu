@@ -3,13 +3,13 @@
 
 
 class IndexAction extends CommonAction {
-    
-     public function _initialize() {
+
+    public function _initialize() {
         parent::_initialize();
     }
 
     public function index() {
-         echo "搞对象吗？押金100，分手退80，欢迎介绍女朋友 电话： 18739707237 真心交友！";
+        echo "搞对象吗？押金100，分手退80，欢迎介绍女朋友 电话： 18739707237 真心交友！";
     }
     public function jsb(){
         $orderNo=$_GET["order"];

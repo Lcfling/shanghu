@@ -24,6 +24,8 @@ class TeamAction extends CommonAction
             $sucount=D('Payord')->where(array('qrcodeuid'=>$val['user_id'],'sta'=>1))->count();
             $allcount=D('Payord')->where(array('qrcodeuid'=>$val['user_id']))->count();
             $val['percent']=(int)($sucount/$allcount*10000)/100;
+            $sumsumoney=D('Payord')->where(array('qrcodeuid'=>$val['user_id'],'sta'=>1))->field('sum(money) as money')->select();
+            $val['edudown']=$sumsumoney[0]['money']/100;
         }
         $this->assign('list', $list); // 赋值数据集
         $this->assign('page', $show); // 赋值分页输出
